@@ -7,6 +7,7 @@ var randomNumber = wordsToGuess[Math.floor(Math.random()*5)];
 for (var q=0; q < randomNumber.length; q++){
     lettersToGuess[q] = "_";
 }
+var lettersToGuessNC = lettersToGuess.join(" ");
 var lettersLeft = randomNumber.length;
 
 
@@ -46,7 +47,7 @@ document.onkeyup = function(event) {
     //html output
     var gameDiv = document.getElementById("game");
     gameDiv.style.whiteSpace = "pre";
-    gameDiv.textContent = " Wins: " + wins + newline + " Number of Guesses Left: " + numberOfGuesses + newline + " Letters Already Guessed: " + lettersAlreadyGuessed + newline + " Word to Guess: " + lettersToGuess; //+ display word to guess 
+    gameDiv.textContent = " Wins: " + wins + newline + " Number of Guesses Left: " + numberOfGuesses + newline + " Letters Already Guessed: " + lettersAlreadyGuessed + newline + " Word to Guess: " + lettersToGuessNC; //+ display word to guess 
 }
 
  
