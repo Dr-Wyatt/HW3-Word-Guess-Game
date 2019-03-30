@@ -1,27 +1,43 @@
 var wins = 0;
-var numberOfGuesses = 12;
+var numberOfGuesses;
 var lettersAlreadyGuessed = [];
 var lettersToGuess = [];
 var wordsToGuess = ["rhino", "giraffe", "dog", "buffalo", "cat"];
 var newline = "\r\n";
 
-
-var randomWord = wordsToGuess[Math.floor(Math.random()*wordsToGuess.length)];
-for (var q=0; q < randomWord.length; q++){
-    lettersToGuess[q] = "_ ";
+function randomWordFunc(list){
+    numberOfGuesses = 13;
+    lettersAlreadyGuessed = [];
+    lettersToGuess = [];
+    var length = list.length;
+    console.log(length);
+    var index = Math.floor(Math.random()*length);
+    lettersAlreadyGuessed.length = 0;
+    lettersToGuess.length = 0;
+    for (var q=0; q < list[index].length; q++){
+        lettersToGuess[q] = "_ ";
+    }
+    return list[index];
 }
 
 
+var randomWord = randomWordFunc(wordsToGuess);
 
 function game(){
     
-    document.onkeyup = function() {
+    document.onkeyup = function(event) {
+        console.log(event.keyCode);
+        if (event.keyCode>=65 && event.keyCode<=90)
+        {
+            console.log("random word:", randomWord);
         var player = event.key;
         console.log(event);
+        var flag = false;
     
         for (var c=0; c< randomWord.length; c++){
-
             if (player === randomWord[c]){
+                flag=true;
+
                 lettersToGuess[c] = player;
                 console.log(player);
                 console.log(lettersToGuess);
@@ -29,22 +45,29 @@ function game(){
                     lettersAlreadyGuessed.push(player);
                     
                     console.log(lettersAlreadyGuessed);
-                    
-                    numberOfGuesses--;
-                }
-                
-                
+                    numberOfGuesses--; 
+                }         
+                  
             }
+            // if (player != randomWord[c]) {
+            //     numberOfGuesses--; 
+            // } 
+            
             if (lettersToGuess.join("") === randomWord) {
                 wins++;
-                lettersAlreadyGuessed.length = 0;
-                lettersToGuess.length = 0;
+                // numberofGuesses.reset();
+                randomWord= randomWordFunc(wordsToGuess);
+                numberOfGuesses--;
                 
             }
-            else if (numberOfGuesses === 0){
-                
+            else if (numberOfGuesses === 1){
+                // numberofGuesses.reset();
+                randomWord = randomWordFunc(wordsToGuess);
             }
             
+        }
+        if(flag==false){
+            numberOfGuesses--;
         }
         
 
@@ -53,6 +76,10 @@ function game(){
         gameDiv.textContent = " Wins: " + wins + newline + " Number of Guesses Left: " + numberOfGuesses + newline + " Letters Already Guessed: " + lettersAlreadyGuessed + newline + " Word to Guess: " + lettersToGuess.join("");
     }
     
+            
+        }
+
+        
 } 
 
 game();
