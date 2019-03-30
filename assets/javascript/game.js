@@ -67,6 +67,7 @@ function game(){
             
         }
         if(flag==false){
+            lettersAlreadyGuessed.push(player);
             numberOfGuesses--;
         }
         
