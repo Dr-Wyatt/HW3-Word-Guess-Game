@@ -1,6 +1,11 @@
 body {
     background-image: url(../images/Pokemon\ Background.jpg);
-    background-size: 1500px 768px;
+    /* background-size: 1500px 768px; */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
 }
 @font-face {
     font-family: "pokemonFont";
@@ -14,16 +19,18 @@ body {
     height: 200px;
 }
 .intro-box{
-    margin-top: 300px;
-    margin-left: 70px;
+    position: relative;
+    margin-top: 250px;
+    margin-left: 150px;
     font-family: "pokemonFont";
 }
 .guessing-box {
+    position: relative;
     color: blue;
     margin: auto;
     font-size: 25px;
-    margin-right: 175px;
-    margin-top: 250px;
+    margin-right: 110px;
+    margin-top: 190px;
 }
 .hangman {
     margin-left: 130px;
