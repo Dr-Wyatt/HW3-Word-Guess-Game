@@ -1,0 +1,26 @@
+body {
+    background-image: url(../images/Pokemon\ Background.jpg);
+    background-size: 1500px 768px;
+}
+.top-buffer {
+    margin-top: 100px;
+}
+.pokemon-logo {
+    width: 600px;
+    height: 200px;
+}
+.intro-box{
+    margin-top: 300px;
+    margin-left: 70px;
+}
+.guessing-box {
+    color: blue;
+    margin: auto;
+    font-size: 40px;
+    margin-right: 150px;
+    margin-top: 250px;
+    
+}
+.hangman {
+    margin-left: 130px;
+}
