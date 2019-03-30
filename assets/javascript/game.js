@@ -74,7 +74,7 @@ function game(){
         var gameDiv = document.getElementById("game");
         gameDiv.style.whiteSpace = "pre";
         gameDiv.classList.add("guessing-box");
-        gameDiv.textContent = " Wins: " + wins + newline + " Number of Guesses Left: " + numberOfGuesses + newline + " Letters Already Guessed: " + lettersAlreadyGuessed + newline + " Word to Guess: " + lettersToGuess.join("");
+        gameDiv.textContent = " Wins: " + wins + newline + " Number of Guesses Left: " + numberOfGuesses + newline + " Letters Already Guessed: " + newline + " " + lettersAlreadyGuessed + newline + " Word to Guess: " + lettersToGuess.join("");
     }
     
             
