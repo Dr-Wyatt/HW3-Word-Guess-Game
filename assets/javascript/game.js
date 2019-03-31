@@ -10,7 +10,6 @@ function randomWordFunc(list){
     lettersAlreadyGuessed = [];
     lettersToGuess = [];
     var length = list.length;
-    console.log(length);
     var index = Math.floor(Math.random()*length);
     lettersAlreadyGuessed.length = 0;
     lettersToGuess.length = 0;
@@ -20,16 +19,14 @@ function randomWordFunc(list){
     return list[index];
 }
 
-
 var randomWord = randomWordFunc(wordsToGuess);
+console.log(randomWord);
 
 function game(){
     
     document.onkeyup = function(event) {
-        
         if (event.keyCode>=65 && event.keyCode<=90)
         {
-            console.log("random word:", randomWord);
             var player = event.key;
             var flag = false;
     
@@ -38,27 +35,18 @@ function game(){
                 flag=true;
 
                 lettersToGuess[c] = player;
-                console.log(player);
-                console.log(lettersToGuess);
                 if (lettersAlreadyGuessed.indexOf(player) === -1){
                     lettersAlreadyGuessed.push(player);
-                    numberOfGuesses--; 
                 }         
                   
             }
-            // if (player != randomWord[c]) {
-            //     numberOfGuesses--; 
-            // } 
-            
             if (lettersToGuess.join("") === randomWord) {
                 wins++;
-                // numberofGuesses.reset();
                 randomWord= randomWordFunc(wordsToGuess);
                 numberOfGuesses--;
                 
             }
             else if (numberOfGuesses === 1){
-                // numberofGuesses.reset();
                 randomWord = randomWordFunc(wordsToGuess);
             }
             
@@ -79,7 +67,7 @@ function game(){
     }
     
             
-        }
+}
 
         
 } 
