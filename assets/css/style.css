@@ -26,7 +26,6 @@ body {
 }
 .guessing-box {
     position: relative;
-    color: blue;
     margin: auto;
     font-size: 25px;
     margin-right: 110px;
